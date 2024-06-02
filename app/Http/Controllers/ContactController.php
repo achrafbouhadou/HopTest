@@ -9,13 +9,32 @@ use Inertia\Inertia;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = Contact::paginate(10);
+        $search = $request->input('search');
+        $sortBy = $request->input('sortBy', 'last_name');
+        $sortDirection = $request->input('sortDirection', 'asc');
+        $currentPage = $request->input('page', 1);
+    
+        $contacts = Contact::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('last_name', 'like', "%{$search}%")
+                             ->orWhere('first_name', 'like', "%{$search}%")
+                             ->orWhere('company', 'like', "%{$search}%");
+            })
+            ->orderBy($sortBy, $sortDirection)
+            ->paginate(10, ['*'], 'page', $currentPage);
+    
         return Inertia::render('ContactList', [
-            'contacts' => $contacts
+            'contacts' => $contacts,
+            'search' => $search,
+            'sortBy' => $sortBy,
+            'sortDirection' => $sortDirection,
+            'currentPage' => $currentPage,
         ]);
     }
+    
+
     public function store(ContactRequest $request)
     {
         $validated = $request->validated();
@@ -71,7 +90,7 @@ class ContactController extends Controller
         $contact->update($validated);
         return redirect()->route('contacts.index')->with('success', 'Contact mis à jour avec succès.');
     }
-    
+
     public function destroy(Contact $contact)
     {
         $contact->delete();
