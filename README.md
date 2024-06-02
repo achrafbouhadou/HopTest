@@ -25,8 +25,8 @@ This is a Contact Management System built with Laravel and Vue.js using Inertia.
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/yourusername/contact-management-system.git
-    cd contact-management-system
+    git clone https://github.com/achrafbouhadou/HopTest.git
+    cd HopTest
     ```
 
 2. **Install PHP dependencies:**
@@ -98,13 +98,6 @@ This is a Contact Management System built with Laravel and Vue.js using Inertia.
     http://localhost:8000
     ```
 
-## Testing
-
-1. **Run the tests:**
-
-    ```sh
-    php artisan test
-    ```
 
 ## Usage
 
@@ -138,10 +131,3 @@ This is a Contact Management System built with Laravel and Vue.js using Inertia.
 1. Click on the column headers ("Nom du contact", "Société", "Statut") to sort contacts by that column.
 2. Click again to toggle between ascending and descending order.
 
-## Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue to discuss your ideas.
-
-## License
-
-This project is open-source and licensed under the [MIT License](LICENSE).
