@@ -26,6 +26,7 @@ const props = defineProps({
   sortDirection: String,
 });
 
+
 const emit = defineEmits(['sort']);
 
 const sort = (field) => {

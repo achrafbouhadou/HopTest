@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-x-auto">
-    <table class="min-w-full bg-white border border-gray-300">
-      <ContactTableHeader @sort="sortTable" :sortBy="sortBy" :sortDirection="sortDirection" />
+    <table v-if="contacts.length" class="min-w-full bg-white border border-gray-300">
+      <ContactTableHeader @sort="sortTable" :sortBy="sortField" :sortDirection="sortOrder" />
       <tbody>
         <ContactTableRow
           v-for="contact in sortedContacts"
@@ -9,9 +9,11 @@
           :contact="contact"
           @edit="editContact(contact)"
           @delete="deleteContact(contact.id)"
+          @view="viewContact(contact)"
         />
       </tbody>
     </table>
+    <div v-else class="p-6 text-center text-gray-500">No records found</div>
   </div>
 </template>
 
@@ -27,12 +29,13 @@ const props = defineProps({
   sortDirection: String,
 });
 
-const emit = defineEmits(['edit', 'delete', 'sort']);
+const emit = defineEmits(['edit', 'delete', 'sort','view']);
 
 const sortField = ref(props.sortBy);
 const sortOrder = ref(props.sortDirection);
 
 const sortTable = (field) => {
+  
   if (sortField.value === field) {
     sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
   } else {
@@ -66,5 +69,8 @@ const editContact = (contact) => {
 
 const deleteContact = (id) => {
   emit('delete', id);
+};
+const viewContact = (contact) => {
+  emit('view', contact);
 };
 </script>

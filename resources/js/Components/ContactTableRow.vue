@@ -4,7 +4,7 @@
     <td class="p-2 border-b align-middle text-sm text-gray-800">{{ contact.company }}</td>
     <td class="p-2 border-b align-middle text-sm text-gray-800"><StatusBadge :status="contact.status" /></td>
     <td class="p-2 border-b align-middle text-sm text-gray-800">
-      <ActionButtons :contact="contact" @edit="$emit('edit', contact)" @delete="$emit('delete', contact.id)" />
+      <ActionButtons :contact="contact" @edit="$emit('edit', contact)" @delete="$emit('delete', contact.id)" @view="$emit('view', contact.id)"/>
     </td>
   </tr>
 </template>
