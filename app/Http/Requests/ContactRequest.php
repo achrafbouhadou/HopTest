@@ -10,13 +10,13 @@ class ContactRequest extends FormRequest
     {
         return true;
     }
-
+    
     public function rules()
     {
         return [
             'first_name' => 'required|alpha',
             'last_name' => 'required|alpha',
-            'email' => 'required|email|unique:contacts,email',
+            'email' => 'required|email',
             'company' => 'required|alpha_num',
             'address' => 'required|string',
             'postal_code' => 'required|digits:5',
