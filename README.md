@@ -1,66 +1,147 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Contact Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a Contact Management System built with Laravel and Vue.js using Inertia.js. The system allows users to manage contacts, including creating, updating, deleting, and searching contacts. Additionally, the system supports sorting and pagination.
 
-## About Laravel
+## Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 8.0
+- Composer
+- Node.js & npm
+- MySQL or any other supported database
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Clone the repository:**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    ```sh
+    git clone https://github.com/yourusername/contact-management-system.git
+    cd contact-management-system
+    ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Install PHP dependencies:**
 
-## Laravel Sponsors
+    ```sh
+    composer install
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Install JavaScript dependencies:**
 
-### Premium Partners
+    ```sh
+    npm install
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Configuration
+
+1. **Copy the `.env.example` file to `.env`:**
+
+    ```sh
+    cp .env.example .env
+    ```
+
+2. **Generate an application key:**
+
+    ```sh
+    php artisan key:generate
+    ```
+
+3. **Set up your database credentials in the `.env` file:**
+
+    ```
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_database
+    DB_USERNAME=your_username
+    DB_PASSWORD=your_password
+    ```
+
+4. **Run the database migrations:**
+
+    ```sh
+    php artisan migrate
+    ```
+
+5. **(Optional) Seed the database with test data:**
+
+    ```sh
+    php artisan db:seed
+    ```
+
+## Running the Application
+
+1. **Compile the assets:**
+
+    ```sh
+    npm run dev
+    ```
+
+2. **Run the development server:**
+
+    ```sh
+    php artisan serve
+    ```
+
+3. **Open your browser and navigate to:**
+
+    ```
+    http://localhost:8000
+    ```
+
+## Testing
+
+1. **Run the tests:**
+
+    ```sh
+    php artisan test
+    ```
+
+## Usage
+
+### Creating a Contact
+
+1. Click the "+ Ajouter" button to open the contact creation form.
+2. Fill in the contact details.
+3. Click "Valider" to save the contact.
+
+### Updating a Contact
+
+1. Click the pencil icon next to a contact to open the contact editing form.
+2. Update the contact details.
+3. Click "Valider" to save the changes.
+
+### Deleting a Contact
+
+1. Click the trash icon next to a contact.
+2. Confirm the deletion in the popup.
+
+### Viewing a Contact
+
+1. Click the eye icon next to a contact to view the contact details in a read-only form.
+
+### Searching Contacts
+
+1. Use the search bar at the top to filter contacts by name or company.
+
+### Sorting Contacts
+
+1. Click on the column headers ("Nom du contact", "Société", "Statut") to sort contacts by that column.
+2. Click again to toggle between ascending and descending order.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Contributions are welcome! Please submit a pull request or open an issue to discuss your ideas.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-source and licensed under the [MIT License](LICENSE).
